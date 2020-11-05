@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import SplashScreen from '../screens/splashScreen/SplashScreen'
 import LoginScreen from '../screens/loginScreen/Login'
 import RegisterScreen from '../screens/registerScreen/RegisterScreen'
+import { background } from '../components/Images/Image'
 
 const Stack = createStackNavigator();
 
@@ -11,21 +12,28 @@ export default class NavigationApp extends React.Component {
     render() {
         return (
             <NavigationContainer>
-                <Stack.Navigator initialRouteName="Register">
-                    <Stack.Screen
-                        name="Splash"
-                        component={SplashScreen}
-                    />
-                    <Stack.Screen
-                        name="Login"
-                        component={LoginScreen}
-                    />
-                    <Stack.Screen
-                        name="Register"
-                        component={RegisterScreen}
-                    />
-                </Stack.Navigator>
+                <NavStack />
             </NavigationContainer>
         );
     }
+}
+
+function NavStack() {
+    return (
+        <Stack.Navigator
+            initialRouteName="Login" headerMode="none">
+            <Stack.Screen
+                name="Splash"
+                component={SplashScreen}
+            />
+            <Stack.Screen
+                name="Login"
+                component={LoginScreen}
+            />
+            <Stack.Screen
+                name="Register"
+                component={RegisterScreen}
+            />
+        </Stack.Navigator>
+    )
 }
