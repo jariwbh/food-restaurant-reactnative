@@ -1,10 +1,11 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import SplashScreen from '../screens/splashScreen/SplashScreen'
+// import SplashScreen from '../screens/splashScreen/SplashScreen'
 import LoginScreen from '../screens/loginScreen/Login'
 import RegisterScreen from '../screens/registerScreen/RegisterScreen'
-import { background } from '../components/Images/Image'
+import ForgotPasswordScreen from '../screens/forgotPassword/ForgotPasswordScreen'
+// import { background } from '../components/Images/Image'
 
 const Stack = createStackNavigator();
 
@@ -22,10 +23,7 @@ function NavStack() {
     return (
         <Stack.Navigator
             initialRouteName="Login" headerMode="none">
-            <Stack.Screen
-                name="Splash"
-                component={SplashScreen}
-            />
+
             <Stack.Screen
                 name="Login"
                 component={LoginScreen}
@@ -33,6 +31,10 @@ function NavStack() {
             <Stack.Screen
                 name="Register"
                 component={RegisterScreen}
+            />
+            <Stack.Screen
+                name="ForgotPassword"
+                component={ForgotPasswordScreen}
             />
         </Stack.Navigator>
     )

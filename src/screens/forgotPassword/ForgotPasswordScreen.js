@@ -1,11 +1,11 @@
-
 import React, { Component } from 'react'
-import { View, StyleSheet, FlatList, Text, TextInput, TouchableOpacity, ScrollView } from 'react-native'
+import { View, StyleSheet, Text, TextInput, TouchableOpacity, ScrollView } from 'react-native'
 import Background from '../../components/Background/Background'
 
-export default class Login extends Component {
+
+export default class ForgotPasswordScreen extends Component {
     state = {
-        email: "",
+
         password: ""
     }
     render() {
@@ -13,41 +13,28 @@ export default class Login extends Component {
 
             <Background>
 
-
-                <View style={styles.inputView}>
-                    <TextInput
-                        style={styles.inputText}
-                        placeholder="Email"
-                        placeholderTextColor="#000000"
-                        onChangeText={text => this.setState({ email: text })}
-                    />
-
-                </View>
                 <View style={styles.inputView} >
                     <TextInput
                         secureTextEntry
                         style={styles.inputText}
-                        placeholder="Password"
+                        placeholder="Reset Password"
                         placeholderTextColor="#000000"
                         onChangeText={text => this.setState({ password: text })}
 
                     />
                 </View>
-                <TouchableOpacity onPress={() => this.props.navigation.navigate('ForgotPassword')}>
-                    <Text style={styles.forgot}>Forgot Password?</Text>
+
+                <TouchableOpacity style={styles.loginBtn} onPress={() => this.props.navigation.navigate('Login')}>
+                    <Text style={styles.loginText}>Reset Password</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.loginBtn}>
-                    <Text style={styles.loginText}>LOGIN</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => this.props.navigation.navigate('Register')} >
-                    <Text style={styles.signupText} >Signup</Text>
-                </TouchableOpacity>
+
 
             </Background>
 
         )
     }
 }
+
 
 const styles = StyleSheet.create({
     inputView: {
@@ -59,16 +46,12 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         padding: 20,
 
+
     },
     inputText: {
         height: 50,
         color: "black",
 
-    },
-    forgot: {
-        color: "#000000",
-        fontSize: 15,
-        fontWeight: 'bold',
     },
     loginBtn: {
         width: "80%",
@@ -82,11 +65,10 @@ const styles = StyleSheet.create({
     },
     loginText: {
         color: "white",
-        fontWeight: 'bold',
-    },
-    signupText: {
-        color: "#000000",
         fontSize: 15,
         fontWeight: 'bold',
-    }
+
+
+    },
+
 });
