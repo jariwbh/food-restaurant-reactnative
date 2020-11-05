@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
-import { _View } from 'react-native'
+import { View, Text } from 'react-native'
 
 export default class Login extends Component {
     render() {
         return (
-            <_View>
-                <Text>
-                    Login Screen
-                </Text>
-            </_View>
+            <View>
+                <Text style={{ fontSize: 25, marginTop: 20 }}> Login Screen</Text>
+            </View>
         )
     }
 }
