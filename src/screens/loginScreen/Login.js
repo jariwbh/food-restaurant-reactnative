@@ -1,7 +1,6 @@
 
 import React, { Component } from 'react'
-import { View, StyleSheet, FlatList, Text, TextInput, TouchableOpacity, ScrollView } from 'react-native'
-import Background from '../../components/Background/Background'
+import { ImageBackground, View, StyleSheet, FlatList, Text, TextInput, TouchableOpacity, ScrollView } from 'react-native'
 
 export default class Login extends Component {
     state = {
@@ -10,10 +9,7 @@ export default class Login extends Component {
     }
     render() {
         return (
-
-            <Background>
-
-
+            <ImageBackground source={require('../../../assets/images/background.png')} style={styles.backgroundImage}>
                 <View style={styles.inputView}>
                     <TextInput
                         style={styles.inputText}
@@ -42,23 +38,34 @@ export default class Login extends Component {
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('Register')} >
                     <Text style={styles.signupText} >Signup</Text>
                 </TouchableOpacity>
-
-            </Background>
-
+            </ImageBackground>
         )
     }
 }
 
 const styles = StyleSheet.create({
+    backgroundImage: {
+        flex: 1,
+        width: '100%',
+        height: '100%',
+        resizeMode: 'cover',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    container: {
+        flex: 1,
+        backgroundColor: '#F67600',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
     inputView: {
-        width: "100%",
+        width: "80%",
         backgroundColor: "#ffffff",
         borderRadius: 25,
         height: 50,
         marginBottom: 20,
         justifyContent: "center",
         padding: 20,
-
     },
     inputText: {
         height: 50,
