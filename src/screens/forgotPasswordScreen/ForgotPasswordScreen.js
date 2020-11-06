@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, StyleSheet, Text, TextInput, TouchableOpacity, ScrollView } from 'react-native'
+import { View, StyleSheet, Text, TextInput, TouchableOpacity, ScrollView, ImageBackground } from 'react-native'
 import Background from '../../components/Background/Background'
 
 
@@ -11,8 +11,8 @@ export default class ForgotPasswordScreen extends Component {
     render() {
         return (
 
-            <Background>
 
+            <ImageBackground source={require('../../../assets/images/background.png')} style={styles.backgroundImage}>
                 <View style={styles.inputView} >
                     <TextInput
                         secureTextEntry
@@ -27,9 +27,10 @@ export default class ForgotPasswordScreen extends Component {
                 <TouchableOpacity style={styles.loginBtn} onPress={() => this.props.navigation.navigate('Login')}>
                     <Text style={styles.loginText}>Reset Password</Text>
                 </TouchableOpacity>
+            </ImageBackground>
 
 
-            </Background>
+
 
         )
     }
@@ -37,16 +38,22 @@ export default class ForgotPasswordScreen extends Component {
 
 
 const styles = StyleSheet.create({
+    backgroundImage: {
+        flex: 1,
+        width: '100%',
+        height: '100%',
+        resizeMode: 'cover',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
     inputView: {
-        width: "100%",
+        width: "80%",
         backgroundColor: "#ffffff",
         borderRadius: 25,
         height: 50,
         marginBottom: 20,
         justifyContent: "center",
         padding: 20,
-
-
     },
     inputText: {
         height: 50,
