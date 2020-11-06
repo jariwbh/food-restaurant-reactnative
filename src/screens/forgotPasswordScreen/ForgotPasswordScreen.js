@@ -1,17 +1,12 @@
 import React, { Component } from 'react'
 import { View, StyleSheet, Text, TextInput, TouchableOpacity, ScrollView, ImageBackground } from 'react-native'
-import Background from '../../components/Background/Background'
-
 
 export default class ForgotPasswordScreen extends Component {
     state = {
-
         password: ""
     }
     render() {
         return (
-
-
             <ImageBackground source={require('../../../assets/images/background.png')} style={styles.backgroundImage}>
                 <View style={styles.inputView} >
                     <TextInput
@@ -23,15 +18,10 @@ export default class ForgotPasswordScreen extends Component {
 
                     />
                 </View>
-
                 <TouchableOpacity style={styles.loginBtn} onPress={() => this.props.navigation.navigate('Login')}>
                     <Text style={styles.loginText}>Reset Password</Text>
                 </TouchableOpacity>
             </ImageBackground>
-
-
-
-
         )
     }
 }
