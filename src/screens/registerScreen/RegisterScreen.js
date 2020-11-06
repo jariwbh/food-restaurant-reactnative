@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react'
-import { View, StyleSheet, Text, TextInput, Button, TouchableOpacity, ScrollView } from 'react-native'
+import { View, StyleSheet, Text, TextInput, Button, TouchableOpacity, ScrollView, ImageBackground } from 'react-native'
 import Background from '../../components/Background/Background'
 
 export default class RegisterScreen extends Component {
@@ -15,7 +15,7 @@ export default class RegisterScreen extends Component {
         return (
 
 
-            <Background>
+            <ImageBackground source={require('../../../assets/images/background.png')} style={styles.backgroundImage}>
                 <View style={styles.inputView}>
                     <TextInput
                         style={styles.inputText}
@@ -58,14 +58,22 @@ export default class RegisterScreen extends Component {
                     <Text style={styles.loginText}>SIGNUP</Text>
                 </TouchableOpacity>
 
-            </Background>
+            </ImageBackground>
 
         )
     }
 }
 const styles = StyleSheet.create({
+    backgroundImage: {
+        flex: 1,
+        width: '100%',
+        height: '100%',
+        resizeMode: 'cover',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
     inputView: {
-        width: "100%",
+        width: "80%",
         backgroundColor: "#ffffff",
         borderRadius: 25,
         height: 50,
