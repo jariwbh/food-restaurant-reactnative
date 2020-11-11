@@ -1,29 +1,7 @@
-
 import React, { Component } from 'react'
-import { ImageBackground, View, StyleSheet, FlatList, Text, TextInput, TouchableOpacity, ScrollView } from 'react-native'
-<<<<<<< HEAD
-
-export default class LoginScreen extends Component {
-    state = {
-        email: "",
-        password: ""
-    }
-
-    render() {
-
-        return (
-            <ImageBackground source={require('../../../assets/images/background.png')} style={styles.backgroundImage} >
-                <View style={styles.inputView}>
-                    <TextInput
-                        style={styles.inputText}
-                        placeholder="Email"
-                        placeholderTextColor="#000000"
-                        onChangeText={text => this.setState({ email: text })}
-
-                    />
-
-=======
+import { ImageBackground, Image, View, StyleSheet, FlatList, Text, TextInput, TouchableOpacity, ScrollView } from 'react-native'
 import { emailValidator, passwordValidator } from '../../components/core/utils'
+
 export default class Login extends Component {
     state = {
         email: "",
@@ -40,8 +18,6 @@ export default class Login extends Component {
                         placeholderTextColor="#000000"
                         onChangeText={text => this.setState({ email: text })}
                     />
-
->>>>>>> ed58f498c520fc1da743accee2726deb39eed72f
                 </View>
                 <View style={styles.inputView} >
                     <TextInput
@@ -50,25 +26,21 @@ export default class Login extends Component {
                         placeholder="Password"
                         placeholderTextColor="#000000"
                         onChangeText={text => this.setState({ password: text })}
-<<<<<<< HEAD
-
-=======
->>>>>>> ed58f498c520fc1da743accee2726deb39eed72f
                     />
                 </View>
+                <TouchableOpacity style={styles.loginBtn} mode="contained" onPress={() => this.props.navigation.navigate('TabNavigations')}>
+                    <Text style={styles.loginText} >LOGIN</Text>
+                </TouchableOpacity>
+
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('ForgotPassword')}>
                     <Text style={styles.forgot}>Forgot Password?</Text>
                 </TouchableOpacity>
-<<<<<<< HEAD
-                <TouchableOpacity style={styles.loginBtn} >
-=======
-                <TouchableOpacity style={styles.loginBtn} mode="contained" onPress={() => this.props.navigation.navigate('TabNavigations')}>
->>>>>>> ed58f498c520fc1da743accee2726deb39eed72f
-                    <Text style={styles.loginText} >LOGIN</Text>
-                </TouchableOpacity>
+
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('Register')} >
-                    <Text style={styles.signupText} >Signup</Text>
+                    <Text style={styles.signupText} >Sign Up for Food Recipes</Text>
                 </TouchableOpacity>
+                <Image source={require('../../../assets/images/logo.png')}
+                    style={{ width: 50, height: 50 }} />
             </ImageBackground>
         )
     }
@@ -83,12 +55,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center'
     },
-    // container: {
-    //     flex: 1,
-    //     backgroundColor: '#F67600',
-    //     alignItems: 'center',
-    //     justifyContent: 'center',
-    // },
     inputView: {
         width: "80%",
         backgroundColor: "#ffffff",
@@ -101,7 +67,6 @@ const styles = StyleSheet.create({
     inputText: {
         height: 50,
         color: "black",
-
     },
     forgot: {
         color: "#000000",
@@ -115,7 +80,7 @@ const styles = StyleSheet.create({
         height: 50,
         alignItems: "center",
         justifyContent: "center",
-        marginTop: 40,
+        marginTop: 5,
         marginBottom: 10
     },
     loginText: {
@@ -123,25 +88,24 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     signupText: {
-        color: "#000000",
-        fontSize: 15,
+        color: "#ffffff",
+        fontSize: 20,
         fontWeight: 'bold',
+        marginTop: 50,
+        marginBottom: 20
     },
     // inputFood: {
-    //     fontWeight: "bold",
-    //     height: 100,
-    //     color: "black",
-    //     fontSize: 50,
+    // fontWeight: "bold",
+    // height: 100,
+    // color: "black",
+    // fontSize: 50,
     // },
     // logo: {
-    //     fontWeight: "bold",
-    //     fontSize: 50,
-    //     color: "#fb5b5a",
-    //     marginBottom: 40
+    // fontWeight: "bold",
+    // fontSize: 50,
+    // color: "#fb5b5a",
+    // marginBottom: 40
     // },
 });
 
-<<<<<<< HEAD
-=======
 // export default LoginScreen
->>>>>>> ed58f498c520fc1da743accee2726deb39eed72f
