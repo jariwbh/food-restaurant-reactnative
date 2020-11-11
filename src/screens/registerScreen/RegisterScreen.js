@@ -1,20 +1,9 @@
-
 import React, { Component } from 'react'
 import { View, StyleSheet, Text, TextInput, Button, TouchableOpacity, ScrollView, ImageBackground } from 'react-native'
-import Background from '../../components/Background/Background'
 
 export default class RegisterScreen extends Component {
-    // state = {
-    //     username ="",
-    //     password ="",
-    //     email = "",
-    //     phone_number =""
-    // }
-
     render() {
         return (
-
-
             <ImageBackground source={require('../../../assets/images/background.png')} style={styles.backgroundImage}>
                 <View style={styles.inputView}>
                     <TextInput

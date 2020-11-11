@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Ionicons, SimpleLineIcons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeScreen from '../screens/homeScreen/Home'
+import HomeScreen from '../screens/homeScreen/HomeScreen'
 import MyProfileScreen from '../screens/myProfileScreen/MyProfileScreen'
 import MenuScreen from '../screens/menuScreen/MenuScreen'
 
@@ -42,9 +42,6 @@ export default function TabNavigation() {
             tabBarOptions={{
                 activeTintColor: '#F4AC2E',
                 inactiveTintColor: '#808B96',
-                // style: {
-                //     backgroundColor: '#925a3a',
-                // }
             }}
         >
             <Tab.Screen name="Home" component={HomeScreen} />

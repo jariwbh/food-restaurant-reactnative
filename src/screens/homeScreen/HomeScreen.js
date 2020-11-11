@@ -18,30 +18,33 @@ export default class Home extends Component {
                         <SliderScreen />
                         <Text style={styles.textview}>Recipes By Caregories</Text>
                         <SafeAreaView style={{ flex: 1, marginTop: 10, marginLeft: 10 }}>
-                            <TouchableOpacity style={styles.buttonstyle}>
+                            <TouchableOpacity style={styles.button}>
                                 <MaterialIcons
                                     name={'free-breakfast'}
                                     size={30}
                                 />
                                 <Text style={styles.buttontext}>BreakFast</Text>
+                                {/* <Text style={styles.buttontext}>24 Recipes</Text> */}
                             </TouchableOpacity>
                         </SafeAreaView>
                         <SafeAreaView style={{ flex: 1, marginTop: 10, marginLeft: 10 }}>
-                            <TouchableOpacity style={styles.buttonstyle}>
+                            <TouchableOpacity style={styles.button}>
                                 <MaterialIcons
                                     name={'free-breakfast'}
                                     size={30}
                                 />
                                 <Text style={styles.buttontext}>BreakFast</Text>
+                                {/* <Text style={styles.buttontext}>24 Recipes</Text> */}
                             </TouchableOpacity>
                         </SafeAreaView>
                         <SafeAreaView style={{ flex: 1, marginTop: 10, marginLeft: 10 }}>
-                            <TouchableOpacity style={styles.buttonstyle}>
+                            <TouchableOpacity style={styles.button}>
                                 <MaterialIcons
                                     name={'free-breakfast'}
                                     size={30}
                                 />
                                 <Text style={styles.buttontext}>BreakFast</Text>
+                                {/* <Text style={styles.buttontext}>24 Recipes</Text> */}
                             </TouchableOpacity>
                         </SafeAreaView>
                     </View>
@@ -52,15 +55,19 @@ export default class Home extends Component {
 }
 
 const styles = StyleSheet.create({
-    buttonstyle: {
+    button: {
         alignItems: 'center',
         justifyContent: 'center',
         flex: 1,
-        backgroundColor: '#009D6E',
         borderRadius: 5,
         flexDirection: 'row',
         width: 140,
-        height: 50,
+        height: 70,
+        padding: 10,
+        borderWidth: 2,
+        borderColor: '#F67600',
+        borderTopLeftRadius: 1,
+        borderStyle: 'solid'
     },
     design: {
         marginTop: 24,
@@ -81,6 +88,6 @@ const styles = StyleSheet.create({
     },
     buttontext: {
         marginLeft: 5,
-        fontSize: 20
+        fontSize: 20,
     }
 });
