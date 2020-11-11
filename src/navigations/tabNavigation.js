@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, SimpleLineIcons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/homeScreen/Home'
 import MyProfileScreen from '../screens/myProfileScreen/MyProfileScreen'
@@ -14,13 +14,9 @@ export default function TabNavigation() {
                 tabBarIcon: ({ focused, color, size }) => {
                     if (route.name === 'Home') {
                         return (
-                            <Ionicons
-                                name={
-                                    focused
-                                        ? 'ios-information-circle'
-                                        : 'ios-information-circle-outline'
-                                }
-                                size={size}
+                            <SimpleLineIcons
+                                name={focused ? 'home' : 'home'}
+                                size={20}
                                 color={color}
                             />
                         );
@@ -28,15 +24,15 @@ export default function TabNavigation() {
                         return (
                             <Ionicons
                                 name={focused ? 'ios-list-box' : 'ios-list'}
-                                size={size}
+                                size={20}
                                 color={color}
                             />
                         );
                     } else if (route.name === 'MyProfile') {
                         return (
-                            <Ionicons
-                                name={focused ? 'ios-list-box' : 'ios-list'}
-                                size={size}
+                            <SimpleLineIcons
+                                name={focused ? 'user' : 'user'}
+                                size={20}
                                 color={color}
                             />
                         );
@@ -44,11 +40,14 @@ export default function TabNavigation() {
                 },
             })}
             tabBarOptions={{
-                activeTintColor: 'tomato',
-                inactiveTintColor: 'gray',
+                activeTintColor: '#F4AC2E',
+                inactiveTintColor: '#808B96',
+                // style: {
+                //     backgroundColor: '#925a3a',
+                // }
             }}
         >
-            <Tab.Screen name="Home" component={HomeScreen} options={{ tabBarBadge: 3 }} />
+            <Tab.Screen name="Home" component={HomeScreen} />
             <Tab.Screen name="Menu" component={MenuScreen} />
             <Tab.Screen name="MyProfile" component={MyProfileScreen} />
         </Tab.Navigator>

@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react'
 import { ImageBackground, View, StyleSheet, FlatList, Text, TextInput, TouchableOpacity, ScrollView } from 'react-native'
+<<<<<<< HEAD
 
 export default class LoginScreen extends Component {
     state = {
@@ -21,6 +22,26 @@ export default class LoginScreen extends Component {
 
                     />
 
+=======
+import { emailValidator, passwordValidator } from '../../components/core/utils'
+export default class Login extends Component {
+    state = {
+        email: "",
+        password: ""
+    }
+
+    render() {
+        return (
+            <ImageBackground source={require('../../../assets/images/background.png')} style={styles.backgroundImage}>
+                <View style={styles.inputView}>
+                    <TextInput
+                        style={styles.inputText}
+                        placeholder="Email"
+                        placeholderTextColor="#000000"
+                        onChangeText={text => this.setState({ email: text })}
+                    />
+
+>>>>>>> ed58f498c520fc1da743accee2726deb39eed72f
                 </View>
                 <View style={styles.inputView} >
                     <TextInput
@@ -29,13 +50,20 @@ export default class LoginScreen extends Component {
                         placeholder="Password"
                         placeholderTextColor="#000000"
                         onChangeText={text => this.setState({ password: text })}
+<<<<<<< HEAD
 
+=======
+>>>>>>> ed58f498c520fc1da743accee2726deb39eed72f
                     />
                 </View>
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('ForgotPassword')}>
                     <Text style={styles.forgot}>Forgot Password?</Text>
                 </TouchableOpacity>
+<<<<<<< HEAD
                 <TouchableOpacity style={styles.loginBtn} >
+=======
+                <TouchableOpacity style={styles.loginBtn} mode="contained" onPress={() => this.props.navigation.navigate('TabNavigations')}>
+>>>>>>> ed58f498c520fc1da743accee2726deb39eed72f
                     <Text style={styles.loginText} >LOGIN</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('Register')} >
@@ -113,3 +141,7 @@ const styles = StyleSheet.create({
     // },
 });
 
+<<<<<<< HEAD
+=======
+// export default LoginScreen
+>>>>>>> ed58f498c520fc1da743accee2726deb39eed72f
