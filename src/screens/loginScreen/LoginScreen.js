@@ -11,6 +11,8 @@ export default class Login extends Component {
     render() {
         return (
             <ImageBackground source={require('../../../assets/images/background.png')} style={styles.backgroundImage}>
+                <Image source={require('../../../assets/images/logo.png')}
+                    style={{ width: 50, height: 50 }} />
                 <View style={styles.inputView}>
                     <TextInput
                         style={styles.inputText}
@@ -35,12 +37,9 @@ export default class Login extends Component {
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('ForgotPassword')}>
                     <Text style={styles.forgot}>Forgot Password?</Text>
                 </TouchableOpacity>
-
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('Register')} >
                     <Text style={styles.signupText} >Sign Up for Food Recipes</Text>
                 </TouchableOpacity>
-                <Image source={require('../../../assets/images/logo.png')}
-                    style={{ width: 50, height: 50 }} />
             </ImageBackground>
         )
     }
