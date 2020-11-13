@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { View, StyleSheet, Image, Text, TextInput, Button, TouchableOpacity, ScrollView, ImageBackground } from 'react-native'
+import { Feather } from '@expo/vector-icons';
 
 export default class RegisterScreen extends Component {
     render() {
@@ -50,10 +51,7 @@ export default class RegisterScreen extends Component {
 
                 </View>
                 <View style={styles.inputView}>
-                    {/* <Image
-                        source={require('../../../assets/icons/email.png')}
-                        style={styles.imageStyle}
-                    /> */}
+
                     <TextInput
                         style={styles.inputText}
                         placeholder="Phone Number"
@@ -93,6 +91,15 @@ const styles = StyleSheet.create({
         height: 120,
 
 
+    },
+    phoneStyle: {
+        padding: 8,
+        margin: 10,
+        height: 30,
+        width: 30,
+        marginLeft: 10,
+        resizeMode: 'stretch',
+        alignItems: 'center',
     },
     imageStyle: {
         padding: 8,

@@ -9,6 +9,7 @@ import {
 import { Feather } from '@expo/vector-icons';
 import { Card } from 'react-native-elements'
 
+
 export default class Profile extends Component {
 
     render() {
