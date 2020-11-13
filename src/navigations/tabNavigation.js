@@ -3,9 +3,25 @@ import { Ionicons, SimpleLineIcons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/homeScreen/HomeScreen'
 import MyProfileScreen from '../screens/myProfileScreen/MyProfileScreen'
-import MenuScreen from '../screens/menuScreen/MenuScreen'
+import CategoriesScreen from '../screens/Categories/CategoriesScreen'
+import RecipeScreen from '../screens/Recipe/RecipeScreen'
+import RecipesListScreen from '../screens/RecipesList/RecipesListScreen'
+import IngredientScreen from '../screens/Ingredient/IngredientScreen'
+import IngredientsDetailsScreen from '../screens/IngredientsDetails/IngredientsDetailsScreen'
 
 const Tab = createBottomTabNavigator();
+
+function Root() {
+    return (
+        <Tab.Navigator initialRouteName="CategoriesScreen">
+            <Tab.Screen name="Categories" component={CategoriesScreen} />
+            <Tab.Screen name="RecipesList" component={RecipesListScreen} />
+            <Tab.Screen name="Recipe" component={RecipeScreen} />
+            <Tab.Screen name="Ingredient" component={IngredientScreen} />
+            <Tab.Screen name="IngredientsDetails" component={IngredientsDetailsScreen} />
+        </Tab.Navigator>
+    );
+}
 
 export default function TabNavigation() {
     return (
@@ -45,7 +61,7 @@ export default function TabNavigation() {
             }}
         >
             <Tab.Screen name="Home" component={HomeScreen} />
-            <Tab.Screen name="Menu" component={MenuScreen} />
+            <Tab.Screen name="Menu" component={CategoriesScreen} />
             <Tab.Screen name="MyProfile" component={MyProfileScreen} />
         </Tab.Navigator>
     );
