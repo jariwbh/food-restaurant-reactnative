@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import { View, StyleSheet, Text, Image, TouchableOpacity, ScrollView, SafeAreaView } from 'react-native'
 import SliderScreen from '../../components/Slider/SliderScreen'
 import { MaterialIcons } from '@expo/vector-icons';
-import img from '../../../assets/images/coffee.png'
-import { color } from 'react-native-reanimated';
+// import img from '../../../assets/images/coffee.png'
+// import { color } from 'react-native-reanimated';
+import BottomNavigator from '../../navigations/BottomNavigation'
 
 export default class Home extends Component {
     render() {
@@ -48,6 +49,7 @@ export default class Home extends Component {
                             </TouchableOpacity>
                         </SafeAreaView>
                     </View>
+                    <BottomNavigator />
                 </ScrollView>
             </View>
         )
