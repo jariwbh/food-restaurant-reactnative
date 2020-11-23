@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View, StyleSheet, Text, Image, TouchableOpacity, ScrollView, SafeAreaView } from 'react-native'
 import SliderScreen from '../../components/Slider/SliderScreen'
-import { MaterialIcons } from '@expo/vector-icons';
+import { MaterialIcons, MaterialCommunityIcons, FontAwesome5, Octicons } from '@expo/vector-icons';
 import CategoriesScreen from '../../screens/Categories/CategoriesScreen';
 import RecipeScreen from '../../screens/Recipe/RecipeScreen'
 import RecipesListScreen from '../../screens/RecipesList/RecipesListScreen'
@@ -17,6 +17,10 @@ import { Card } from 'react-native-elements';
 class HomeScreen extends Component {
     static navigationOptions = ({ navigation }) => ({
         title: 'Home',
+        headerStyle: {
+            backgroundColor: '#F67600',
+        },
+        headerTintColor: '#fff',
         headerLeft: (
             <View style={styles.nestedButtonView}>
                 <MenuImage
@@ -24,12 +28,9 @@ class HomeScreen extends Component {
                         navigation.openDrawer();
                     }}
                 />
-                <TouchableOpacity style={styles.headerButtonContainer} >
-                    <Image
-                        style={styles.headerButtonImage}
-                        source={require('../../../assets/icons/search.png')}
-                        onPress={() => { this.props.navigation.navigate('Search'); }}
-                    />
+
+                <TouchableOpacity style={styles.headerButtonContainer} onPress={() => navigation.navigate('Search')}>
+                    <Octicons name="search" size={20} color="black" style={styles.searchStyle} />
                 </TouchableOpacity>
             </View>
         ),
@@ -39,17 +40,13 @@ class HomeScreen extends Component {
             <View style={styles.continer}>
 
                 <View style={styles.design}>
-
+                    <Text style={styles.textview}>Recently Added Recipes</Text>
                     <SliderScreen />
                     <Text style={styles.textview}>Recipes By Caregories</Text>
                     <View style={styles.cardstyle}>
                         <Card style={styles.cardlayout}>
                             <TouchableOpacity style={styles.button}>
-                                <MaterialIcons
-                                    name={'free-breakfast'}
-                                    size={30}
-                                    style={styles.icon}
-                                />
+                                <FontAwesome5 name="bread-slice" size={30} style={styles.icon} />
                                 <Text style={styles.buttontext}>BreakFast &nbsp;&nbsp; <Text style={styles.innerText}>24 Recipes</Text>
                                 </Text>
                             </TouchableOpacity>
@@ -71,11 +68,7 @@ class HomeScreen extends Component {
                         <Card >
 
                             <TouchableOpacity style={styles.button}>
-                                <MaterialIcons
-                                    name={'free-breakfast'}
-                                    size={30}
-                                    style={styles.icon}
-                                />
+                                <MaterialIcons name="room-service" size={30} style={styles.icon} />
                                 <Text style={styles.buttontext}>Dinner &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <Text style={styles.innerText}>24 Recipes</Text>
                                 </Text>
 
@@ -112,11 +105,7 @@ class HomeScreen extends Component {
                         <Card >
 
                             <TouchableOpacity style={styles.button}>
-                                <MaterialIcons
-                                    name={'free-breakfast'}
-                                    size={30}
-                                    style={styles.icon}
-                                />
+                                <MaterialCommunityIcons name="ice-cream" size={30} style={styles.icon} />
                                 <Text style={styles.buttontext}>ice-cream   <Text style={styles.innerText}>24 Recipes</Text>
                                 </Text>
 
@@ -210,8 +199,6 @@ const styles = StyleSheet.create({
     headerButtonImage: {
         // justifyContent: 'flex-end',
         // textAlign: 'right',
-        width: 20,
-        height: 20,
         margin: 20,
         marginLeft: 380
     },
@@ -228,7 +215,10 @@ const styles = StyleSheet.create({
         fontSize: 12,
         alignItems: 'center',
     },
-
+    searchStyle: {
+        margin: 20,
+        marginLeft: 380
+    }
 });
 
 const SwitchNavigator = createStackNavigator(
