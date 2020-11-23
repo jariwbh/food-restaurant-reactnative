@@ -2,14 +2,14 @@ import React from 'react';
 import LoginScreen from '../screens/loginScreen/LoginScreen'
 import RegisterScreen from '../screens/registerScreen/RegisterScreen'
 import ForgotPasswordScreen from '../screens/forgotPasswordScreen/ForgotPasswordScreen'
-import CategoriesScreen from '../screens/Categories/CategoriesScreen';
-import RecipeScreen from '../screens/Recipe/RecipeScreen'
-import RecipesListScreen from '../screens/RecipesList/RecipesListScreen'
-import IngredientScreen from '../screens/Ingredient/IngredientScreen'
-import SearchScreen from '../screens/Search/SearchScreen'
-import IngredientsDetailsScreen from '../screens/IngredientsDetails/IngredientsDetailsScreen'
+// import CategoriesScreen from '../screens/Categories/CategoriesScreen';
+// import RecipeScreen from '../screens/Recipe/RecipeScreen'
+// import RecipesListScreen from '../screens/RecipesList/RecipesListScreen'
+// import IngredientScreen from '../screens/Ingredient/IngredientScreen'
+// import SearchScreen from '../screens/Search/SearchScreen'
+// import IngredientsDetailsScreen from '../screens/IngredientsDetails/IngredientsDetailsScreen'
 import HomeScreen from '../screens/homeScreen/HomeScreen'
-import MyProfileScreen from '../screens/myProfileScreen/MyProfileScreen'
+// import MyProfileScreen from '../screens/myProfileScreen/MyProfileScreen'
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 
 const AppNavigator = createSwitchNavigator({
