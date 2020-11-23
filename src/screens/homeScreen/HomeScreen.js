@@ -38,22 +38,24 @@ class HomeScreen extends Component {
     });
     render() {
         return (
-            <View>
-                <ScrollView>
-                    <View style={styles.design}>
-                        <SliderScreen />
+            <View style={styles.continer}>
 
-                        <Text style={styles.textview}>Recipes By Caregories</Text>
-                        <SafeAreaView style={{ flex: 1, marginTop: 10, marginLeft: 10 }}>
+                <View style={styles.design}>
+
+                    <SliderScreen />
+                    <Text style={styles.textview}>Recipes By Caregories</Text>
+                    <View style={styles.cardstyle}>
+                        <Card style={styles.cardlayout}>
                             <TouchableOpacity style={styles.button}>
                                 <MaterialIcons
                                     name={'free-breakfast'}
                                     size={30}
                                     style={styles.icon}
                                 />
-                                <Text style={styles.buttontext}>BreakFast</Text>
+                                <Text style={styles.buttontext}>BreakFast &nbsp;&nbsp; <Text style={styles.innerText}>24 Recipes</Text>
+                                </Text>
                             </TouchableOpacity>
-                        </SafeAreaView>
+                        </Card>
                         <Card >
 
                             <TouchableOpacity style={styles.button}>
@@ -62,7 +64,9 @@ class HomeScreen extends Component {
                                     size={30}
                                     style={styles.icon}
                                 />
-                                <Text style={styles.buttontext}>BreakFast</Text>
+                                <Text style={styles.buttontext}>Lunch &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <Text style={styles.innerText}>106 Recipes</Text>
+                                </Text>
+
                             </TouchableOpacity>
 
                         </Card>
@@ -74,15 +78,98 @@ class HomeScreen extends Component {
                                     size={30}
                                     style={styles.icon}
                                 />
-                                <Text style={styles.buttontext}>BreakFast</Text>
+                                <Text style={styles.buttontext}>Dinner &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <Text style={styles.innerText}>24 Recipes</Text>
+                                </Text>
+
                             </TouchableOpacity>
 
                         </Card>
-
-
-
                     </View>
-                </ScrollView>
+                    <View style={styles.cardstyle}>
+                        <Card style={styles.cardlayout}>
+                            <TouchableOpacity style={styles.button}>
+                                <MaterialIcons
+                                    name={'free-breakfast'}
+                                    size={30}
+                                    style={styles.icon}
+                                />
+                                <Text style={styles.buttontext}>Veg Menu &nbsp;&nbsp; <Text style={styles.innerText}>24 Recipes</Text>
+                                </Text>
+                            </TouchableOpacity>
+                        </Card>
+                        <Card >
+
+                            <TouchableOpacity style={styles.button}>
+                                <MaterialIcons
+                                    name={'free-breakfast'}
+                                    size={30}
+                                    style={styles.icon}
+                                />
+                                <Text style={styles.buttontext}>Non-veg  &nbsp;&nbsp;&nbsp;&nbsp;  <Text style={styles.innerText}>106 Recipes</Text>
+                                </Text>
+
+                            </TouchableOpacity>
+
+                        </Card>
+                        <Card >
+
+                            <TouchableOpacity style={styles.button}>
+                                <MaterialIcons
+                                    name={'free-breakfast'}
+                                    size={30}
+                                    style={styles.icon}
+                                />
+                                <Text style={styles.buttontext}>ice-cream   <Text style={styles.innerText}>24 Recipes</Text>
+                                </Text>
+
+                            </TouchableOpacity>
+
+                        </Card>
+                    </View>
+                    <View style={styles.cardstyle}>
+                        <Card style={styles.cardlayout}>
+                            <TouchableOpacity style={styles.button}>
+                                <MaterialIcons
+                                    name={'free-breakfast'}
+                                    size={30}
+                                    style={styles.icon}
+                                />
+                                <Text style={styles.buttontext}>Starter &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <Text style={styles.innerText}>24 Recipes</Text>
+                                </Text>
+                            </TouchableOpacity>
+                        </Card>
+                        <Card >
+
+                            <TouchableOpacity style={styles.button}>
+                                <MaterialIcons
+                                    name={'free-breakfast'}
+                                    size={30}
+                                    style={styles.icon}
+                                />
+                                <Text style={styles.buttontext}>Drinks  &nbsp;&nbsp;&nbsp;&nbsp;  <Text style={styles.innerText}>106 Recipes</Text>
+                                </Text>
+
+                            </TouchableOpacity>
+
+                        </Card>
+                        <Card >
+
+                            <TouchableOpacity style={styles.button}>
+                                <MaterialIcons
+                                    name={'free-breakfast'}
+                                    size={30}
+                                    style={styles.icon}
+                                />
+                                <Text style={styles.buttontext}>Main-cours   <Text style={styles.innerText}>24 Recipes</Text>
+                                </Text>
+
+                            </TouchableOpacity>
+
+                        </Card>
+                    </View>
+                </View>
+
+
             </View>
         )
     }
@@ -133,6 +220,17 @@ const styles = StyleSheet.create({
     nestedButtonView: {
         flexDirection: 'row',
     },
+    cardstyle: {
+        alignItems: 'center',
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+
+    },
+    innerText: {
+        fontSize: 12,
+        alignItems: 'center',
+    },
+
 });
 
 const SwitchNavigator = createStackNavigator(
