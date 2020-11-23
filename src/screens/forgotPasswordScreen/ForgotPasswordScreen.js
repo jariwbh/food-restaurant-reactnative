@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { View, StyleSheet, Image, Text, TextInput, TouchableOpacity, ScrollView, ImageBackground } from 'react-native'
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export default class ForgotPasswordScreen extends Component {
     state = {
@@ -11,6 +12,7 @@ export default class ForgotPasswordScreen extends Component {
                 <Image source={require('../../../assets/icons/membrozlogo.png')}
                     style={styles.Image} />
                 <View style={styles.inputView} >
+                    <MaterialCommunityIcons name="account-key" size={24} color="#F67600" style={styles.passStyle} />
                     <TextInput
                         secureTextEntry
                         style={styles.inputText}
@@ -37,29 +39,37 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+    passStyle: {
+        padding: 8,
+        margin: 5,
+        height: 40,
+        width: 40,
+        marginLeft: 5,
+        // resizeMode: 'stretch',
+        alignItems: 'center',
+
+    },
 
     inputView: {
         width: "80%",
+        flexDirection: 'row',
         backgroundColor: "#f2f2f2",
-        borderRadius: 25,
-        height: 50,
-        marginBottom: 20,
-        justifyContent: "center",
-        padding: 20,
-        borderColor: '#000',
         borderWidth: 0.5,
+        borderColor: '#000',
+        height: 50,
+        borderRadius: 25,
+        margin: 10,
     },
     inputText: {
         height: 50,
         color: "black",
+        paddingLeft: 3,
 
     },
     Image: {
         marginBottom: 80,
         width: 280,
         height: 120,
-
-
     },
     loginBtn: {
         width: "80%",
@@ -78,7 +88,7 @@ const styles = StyleSheet.create({
         fontSize: 15,
         fontWeight: 'bold',
 
-
     },
+
 
 });

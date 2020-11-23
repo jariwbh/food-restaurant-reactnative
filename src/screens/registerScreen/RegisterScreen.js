@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { View, StyleSheet, Image, Text, TextInput, Button, TouchableOpacity, ScrollView, ImageBackground } from 'react-native'
-import { Feather } from '@expo/vector-icons';
+import { FontAwesome, MaterialCommunityIcons, Zocial } from '@expo/vector-icons';
 
 export default class RegisterScreen extends Component {
     render() {
@@ -10,10 +10,7 @@ export default class RegisterScreen extends Component {
                     style={styles.Image} />
 
                 <View style={styles.inputView}>
-                    {/* <Image
-                        source={require('../../../assets/icons/email.png')}
-                        style={styles.imageStyle}
-                    /> */}
+                    <FontAwesome name="user" size={24} color="#F67600" style={styles.userStyle} />
                     <TextInput
                         style={styles.inputText}
                         placeholder="Username"
@@ -24,10 +21,7 @@ export default class RegisterScreen extends Component {
                 </View>
 
                 <View style={styles.inputView} >
-                    {/* <Image
-                        source={require('../../../assets/icons/email.png')}
-                        style={styles.imageStyle}
-                    /> */}
+                    <MaterialCommunityIcons name="account-key" size={24} color="#F67600" style={styles.passStyle} />
                     <TextInput
                         secureTextEntry
                         style={styles.inputText}
@@ -38,10 +32,7 @@ export default class RegisterScreen extends Component {
                     />
                 </View>
                 <View style={styles.inputView}>
-                    {/* <Image
-                        source={require('../../../assets/icons/email.png')}
-                        style={styles.imageStyle}
-                    /> */}
+                    <Zocial name="email" size={24} color="#F67600" style={styles.emailStyle} />
                     <TextInput
                         style={styles.inputText}
                         placeholder="Email"
@@ -51,7 +42,7 @@ export default class RegisterScreen extends Component {
 
                 </View>
                 <View style={styles.inputView}>
-
+                    <FontAwesome name="phone" size={24} color="#F67600" style={styles.phoneStyle} />
                     <TextInput
                         style={styles.inputText}
                         placeholder="Phone Number"
@@ -111,15 +102,15 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     inputView: {
-        width: "80%",
-        backgroundColor: "#f2f2f2",
-        borderRadius: 25,
-        height: 50,
         marginBottom: 20,
-        justifyContent: "center",
-        padding: 20,
+        width: "80%",
+        flexDirection: 'row',
+        backgroundColor: "#f2f2f2",
         borderWidth: 0.5,
         borderColor: '#000',
+        height: 50,
+        borderRadius: 25,
+        margin: 10,
 
     },
     inputText: {
@@ -157,6 +148,42 @@ const styles = StyleSheet.create({
     },
     innerText: {
         color: '#F67600'
+    },
+    userStyle: {
+        padding: 8,
+        margin: 5,
+        height: 40,
+        width: 40,
+        marginLeft: 5,
+        // resizeMode: 'stretch',
+        alignItems: 'center',
+    },
+    passStyle: {
+        padding: 8,
+        margin: 5,
+        height: 40,
+        width: 40,
+        marginLeft: 5,
+        // resizeMode: 'stretch',
+        alignItems: 'center',
+    },
+    emailStyle: {
+        padding: 8,
+        margin: 5,
+        height: 40,
+        width: 40,
+        marginLeft: 5,
+        // resizeMode: 'stretch',
+        alignItems: 'center',
+    },
+    phoneStyle: {
+        padding: 8,
+        margin: 5,
+        height: 40,
+        width: 40,
+        marginLeft: 5,
+        // resizeMode: 'stretch',
+        alignItems: 'center',
     },
 
 });

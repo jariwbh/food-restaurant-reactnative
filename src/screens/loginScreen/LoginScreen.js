@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { ImageBackground, Image, View, StyleSheet, FlatList, Text, TextInput, TouchableOpacity, ScrollView } from 'react-native'
 import { emailValidator, passwordValidator } from '../../components/core/utils'
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-
+import { MaterialCommunityIcons, Zocial } from '@expo/vector-icons';
 
 export default class Login extends Component {
     state = {
@@ -19,10 +18,7 @@ export default class Login extends Component {
                         style={styles.Image} />
                 </View>
                 <View style={styles.inputView}>
-                    <Image
-                        source={require('../../../assets/icons/email.png')}
-                        style={styles.emailStyle}
-                    />
+                    <Zocial name="email" size={24} color="#F67600" style={styles.emailStyle} />
                     <TextInput
                         style={styles.inputText}
                         placeholder="Email"
@@ -35,10 +31,7 @@ export default class Login extends Component {
 
                 </View>
                 <View style={styles.inputView} >
-                    {/* <Image
-                        source={require('../../../assets/icons/')}
-                        style={styles.imageStyle}
-                    /> */}
+
                     <MaterialCommunityIcons name="account-key" size={24} color="#F67600" style={styles.passStyle} />
                     <TextInput
                         secureTextEntry
@@ -52,7 +45,8 @@ export default class Login extends Component {
                     <Text style={styles.forgot}>Forgot Password ?</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.loginBtn} mode="contained" onPress={() => this.props.navigation.navigate('TabNavigations')}>
+                <TouchableOpacity style={styles.loginBtn} onPress={() => this.props.navigation.navigate('Home')}>
+
                     <Text style={styles.loginText} >Login</Text>
                 </TouchableOpacity>
 
@@ -87,11 +81,11 @@ const styles = StyleSheet.create({
     },
     emailStyle: {
         padding: 8,
-        margin: 10,
-        height: 30,
-        width: 30,
-        marginLeft: 10,
-        resizeMode: 'stretch',
+        margin: 5,
+        height: 40,
+        width: 40,
+        marginLeft: 5,
+        // resizeMode: 'stretch',
         alignItems: 'center',
     },
     passStyle: {
@@ -100,7 +94,7 @@ const styles = StyleSheet.create({
         height: 40,
         width: 40,
         marginLeft: 5,
-        resizeMode: 'stretch',
+        // resizeMode: 'stretch',
         alignItems: 'center',
     },
     inputView: {
