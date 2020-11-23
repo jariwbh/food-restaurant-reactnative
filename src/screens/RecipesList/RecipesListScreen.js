@@ -5,6 +5,13 @@ import { recipes } from '../../data/dataArrays';
 import { getCategoryName } from '../../data/MockDataAPI';
 
 export default class HomeScreen extends React.Component {
+  static navigationOptions = () => ({
+    headerStyle: {
+      backgroundColor: '#F67600',
+    },
+    headerTintColor: '#fff',
+  });
+
   constructor(props) {
     super(props);
   }

@@ -12,7 +12,7 @@ export default function SliderScreen() {
     return (
         <SliderBox
             images={images}
-            sliderBoxHeight={200}
+            sliderBoxHeight={250}
             dotColor="#2f408f"
             inactiveDotColor="#90A4AE"
             paginationBoxVerticalPadding={0}

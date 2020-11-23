@@ -1,20 +1,16 @@
 import React, { Component } from 'react';
-import {
-    StyleSheet,
-    Text,
-    View,
-    Image,
-    TouchableOpacity,
-
-} from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { Feather, AntDesign, FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons';
 
-
 export default class MyProfile extends Component {
-
+    static navigationOptions = () => ({
+        headerStyle: {
+            backgroundColor: '#F67600',
+        },
+        headerTintColor: '#fff',
+    });
     render() {
         return (
-
             <View >
                 <View style={styles.header}>
 
@@ -62,10 +58,7 @@ export default class MyProfile extends Component {
                         <Text style={styles.inputText} >Log Out</Text>
                     </TouchableOpacity>
                 </View>
-
-
             </View>
-
         );
     }
 }
