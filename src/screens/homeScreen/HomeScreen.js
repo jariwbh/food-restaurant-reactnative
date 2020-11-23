@@ -2,30 +2,58 @@ import React, { Component } from 'react'
 import { View, StyleSheet, Text, Image, TouchableOpacity, ScrollView, SafeAreaView } from 'react-native'
 import SliderScreen from '../../components/Slider/SliderScreen'
 import { MaterialIcons } from '@expo/vector-icons';
-import { Card } from 'react-native-elements'
+import CategoriesScreen from '../../screens/Categories/CategoriesScreen';
+import RecipeScreen from '../../screens/Recipe/RecipeScreen'
+import RecipesListScreen from '../../screens/RecipesList/RecipesListScreen'
+import IngredientScreen from '../../screens/Ingredient/IngredientScreen'
+import SearchScreen from '../../screens/Search/SearchScreen'
+import IngredientsDetailsScreen from '../../screens/IngredientsDetails/IngredientsDetailsScreen'
+import MyProfileScreen from '../../screens/myProfileScreen/MyProfileScreen'
+import DrawerContainer from '../../screens/DrawerContainer/DrawerContainer';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+import { createDrawerNavigator } from 'react-navigation-drawer'
+import MenuImage from '../../components/MenuImage/MenuImage';
+import { Card } from 'react-native-elements';
 
-
-export default class Home extends Component {
+class HomeScreen extends Component {
+    static navigationOptions = ({ navigation }) => ({
+        title: 'Home',
+        headerLeft: (
+            <View style={styles.nestedButtonView}>
+                <MenuImage
+                    onPress={() => {
+                        navigation.openDrawer();
+                    }}
+                />
+                <TouchableOpacity style={styles.headerButtonContainer} >
+                    <Image
+                        style={styles.headerButtonImage}
+                        source={require('../../../assets/icons/search.png')}
+                        onPress={() => { this.props.navigation.navigate('Search'); }}
+                    />
+                </TouchableOpacity>
+            </View>
+        ),
+    });
     render() {
         return (
-            <View style={styles.continer}>
+            <View>
+                <ScrollView>
+                    <View style={styles.design}>
+                        <SliderScreen />
 
-                <View style={styles.design}>
-
-                    <SliderScreen />
-                    <Text style={styles.textview}>Recipes By Caregories</Text>
-                    <View style={styles.cardstyle}>
-                        <Card style={styles.cardlayout}>
+                        <Text style={styles.textview}>Recipes By Caregories</Text>
+                        <SafeAreaView style={{ flex: 1, marginTop: 10, marginLeft: 10 }}>
                             <TouchableOpacity style={styles.button}>
                                 <MaterialIcons
                                     name={'free-breakfast'}
                                     size={30}
                                     style={styles.icon}
                                 />
-                                <Text style={styles.buttontext}>BreakFast &nbsp;&nbsp; <Text style={styles.innerText}>24 Recipes</Text>
-                                </Text>
+                                <Text style={styles.buttontext}>BreakFast</Text>
                             </TouchableOpacity>
-                        </Card>
+                        </SafeAreaView>
                         <Card >
 
                             <TouchableOpacity style={styles.button}>
@@ -34,9 +62,7 @@ export default class Home extends Component {
                                     size={30}
                                     style={styles.icon}
                                 />
-                                <Text style={styles.buttontext}>Lunch &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <Text style={styles.innerText}>106 Recipes</Text>
-                                </Text>
-
+                                <Text style={styles.buttontext}>BreakFast</Text>
                             </TouchableOpacity>
 
                         </Card>
@@ -48,9 +74,7 @@ export default class Home extends Component {
                                     size={30}
                                     style={styles.icon}
                                 />
-                                <Text style={styles.buttontext}>Dinner &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <Text style={styles.innerText}>24 Recipes</Text>
-                                </Text>
-
+                                <Text style={styles.buttontext}>BreakFast</Text>
                             </TouchableOpacity>
 
                         </Card>
@@ -58,9 +82,7 @@ export default class Home extends Component {
 
 
                     </View>
-                </View>
-
-
+                </ScrollView>
             </View>
         )
     }
@@ -99,17 +121,46 @@ const styles = StyleSheet.create({
     buttontext: {
         marginLeft: 10,
         fontSize: 20,
-
     },
-    cardstyle: {
-        alignItems: 'center',
+    headerButtonImage: {
+        // justifyContent: 'flex-end',
+        // textAlign: 'right',
+        width: 20,
+        height: 20,
+        margin: 20,
+        marginLeft: 380
+    },
+    nestedButtonView: {
         flexDirection: 'row',
-        justifyContent: 'space-around',
-
     },
-    innerText: {
-        fontSize: 12,
-        alignItems: 'center',
-    },
-
 });
+
+const SwitchNavigator = createStackNavigator(
+    {
+        Home: HomeScreen,
+        Categories: CategoriesScreen,
+        Recipe: RecipeScreen,
+        RecipesList: RecipesListScreen,
+        Ingredient: IngredientScreen,
+        Search: SearchScreen,
+        IngredientsDetails: IngredientsDetailsScreen,
+        MyProfile: MyProfileScreen,
+    },
+    {
+        initialRouteName: 'Home'
+    }
+)
+
+const DrawerStack = createDrawerNavigator(
+    {
+        Main: SwitchNavigator
+    },
+    {
+        drawerPosition: 'left',
+        initialRouteName: 'Main',
+        drawerWidth: 250,
+        contentComponent: DrawerContainer
+    },
+);
+
+export default HomeScreen = createAppContainer(DrawerStack)

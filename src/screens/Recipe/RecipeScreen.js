@@ -7,7 +7,8 @@ import {
   TouchableOpacity,
   Image,
   Dimensions,
-  TouchableHighlight
+  TouchableHighlight,
+  Alert
 } from 'react-native';
 import styles from './styles';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
@@ -108,11 +109,7 @@ export default class RecipeScreen extends React.Component {
           </View>
           <View style={styles.infoContainer}>
             <ViewIngredientsButton
-              onPress={() => {
-                let ingredients = item.ingredients;
-                let title = 'Ingredients for ' + item.title;
-                navigation.navigate('IngredientsDetails', { ingredients, title });
-              }}
+              onPress={() => { alert("Done") }}
             />
           </View>
         </View>
