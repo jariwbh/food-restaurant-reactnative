@@ -12,6 +12,7 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createDrawerNavigator } from 'react-navigation-drawer'
 import MenuImage from '../../components/MenuImage/MenuImage';
+import { Card } from 'react-native-elements';
 
 class HomeScreen extends Component {
     static navigationOptions = ({ navigation }) => ({
@@ -45,34 +46,45 @@ class HomeScreen extends Component {
                     <View style={styles.design}>
                         <Text style={styles.textview}>Recipes By Caregories</Text>
                         <SliderScreen />
+
                         <Text style={styles.textview}>Recipes By Caregories</Text>
                         <SafeAreaView style={{ flex: 1, marginTop: 10, marginLeft: 10 }}>
                             <TouchableOpacity style={styles.button}>
                                 <MaterialIcons
                                     name={'free-breakfast'}
                                     size={30}
+                                    style={styles.icon}
                                 />
                                 <Text style={styles.buttontext}>BreakFast</Text>
                             </TouchableOpacity>
                         </SafeAreaView>
-                        <SafeAreaView style={{ flex: 1, marginTop: 10, marginLeft: 10 }}>
+                        <Card >
+
                             <TouchableOpacity style={styles.button}>
                                 <MaterialIcons
                                     name={'free-breakfast'}
                                     size={30}
+                                    style={styles.icon}
                                 />
                                 <Text style={styles.buttontext}>BreakFast</Text>
                             </TouchableOpacity>
-                        </SafeAreaView>
-                        <SafeAreaView style={{ flex: 1, marginTop: 10, marginLeft: 10 }}>
+
+                        </Card>
+                        <Card >
+
                             <TouchableOpacity style={styles.button}>
                                 <MaterialIcons
                                     name={'free-breakfast'}
                                     size={30}
+                                    style={styles.icon}
                                 />
                                 <Text style={styles.buttontext}>BreakFast</Text>
                             </TouchableOpacity>
-                        </SafeAreaView>
+
+                        </Card>
+
+
+
                     </View>
                 </ScrollView>
             </View>
@@ -81,30 +93,28 @@ class HomeScreen extends Component {
 }
 
 const styles = StyleSheet.create({
+    continer: {
+        flex: 1,
+    },
     button: {
         alignItems: 'center',
         justifyContent: 'center',
-        flex: 1,
-        borderRadius: 5,
         flexDirection: 'row',
-        width: 140,
-        height: 70,
-        padding: 10,
-        borderWidth: 2,
-        borderColor: '#F67600',
-        borderTopLeftRadius: 1,
-        borderStyle: 'solid'
+        width: 120,
+        height: 50,
     },
     design: {
         marginTop: 0,
     },
     image: {
         height: '30%',
-        width: '50%'
+        width: '50%',
+
     },
     icon: {
-        height: '40%',
-        width: '40%',
+        // height: '40%',
+        // width: '40%',
+        marginLeft: 10
     },
     textview: {
         marginTop: 10,
@@ -113,7 +123,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     buttontext: {
-        marginLeft: 5,
+        marginLeft: 10,
         fontSize: 20,
     },
     headerButtonImage: {
