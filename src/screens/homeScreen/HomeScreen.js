@@ -2,20 +2,44 @@ import React, { Component } from 'react'
 import { View, StyleSheet, Text, Image, TouchableOpacity, ScrollView, SafeAreaView } from 'react-native'
 import SliderScreen from '../../components/Slider/SliderScreen'
 import { MaterialIcons } from '@expo/vector-icons';
-// import img from '../../../assets/images/coffee.png'
-// import { color } from 'react-native-reanimated';
-import BottomNavigator from '../../navigations/BottomNavigation'
+import CategoriesScreen from '../../screens/Categories/CategoriesScreen';
+import RecipeScreen from '../../screens/Recipe/RecipeScreen'
+import RecipesListScreen from '../../screens/RecipesList/RecipesListScreen'
+import IngredientScreen from '../../screens/Ingredient/IngredientScreen'
+import SearchScreen from '../../screens/Search/SearchScreen'
+import IngredientsDetailsScreen from '../../screens/IngredientsDetails/IngredientsDetailsScreen'
+import MyProfileScreen from '../../screens/myProfileScreen/MyProfileScreen'
+import DrawerContainer from '../../screens/DrawerContainer/DrawerContainer';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+import { createDrawerNavigator } from 'react-navigation-drawer'
+import MenuImage from '../../components/MenuImage/MenuImage';
 
-export default class Home extends Component {
+class HomeScreen extends Component {
+    static navigationOptions = ({ navigation }) => ({
+        title: 'Home',
+        headerLeft: (
+            <View style={styles.nestedButtonView}>
+                <MenuImage
+                    onPress={() => {
+                        navigation.openDrawer();
+                    }}
+                />
+                <TouchableOpacity style={styles.headerButtonContainer} >
+                    <Image
+                        style={styles.headerButtonImage}
+                        source={require('../../../assets/icons/search.png')}
+                        onPress={() => { this.props.navigation.navigate('Search'); }}
+                    />
+                </TouchableOpacity>
+            </View>
+        ),
+    });
     render() {
         return (
             <View>
                 <ScrollView>
                     <View style={styles.design}>
-                        {/* <Image style={styles.image}
-                            source={require('../../../assets/images/logo.png')}
-                        />
-                         */}
                         <SliderScreen />
                         <Text style={styles.textview}>Recipes By Caregories</Text>
                         <SafeAreaView style={{ flex: 1, marginTop: 10, marginLeft: 10 }}>
@@ -25,7 +49,6 @@ export default class Home extends Component {
                                     size={30}
                                 />
                                 <Text style={styles.buttontext}>BreakFast</Text>
-                                {/* <Text style={styles.buttontext}>24 Recipes</Text> */}
                             </TouchableOpacity>
                         </SafeAreaView>
                         <SafeAreaView style={{ flex: 1, marginTop: 10, marginLeft: 10 }}>
@@ -35,7 +58,6 @@ export default class Home extends Component {
                                     size={30}
                                 />
                                 <Text style={styles.buttontext}>BreakFast</Text>
-                                {/* <Text style={styles.buttontext}>24 Recipes</Text> */}
                             </TouchableOpacity>
                         </SafeAreaView>
                         <SafeAreaView style={{ flex: 1, marginTop: 10, marginLeft: 10 }}>
@@ -45,11 +67,9 @@ export default class Home extends Component {
                                     size={30}
                                 />
                                 <Text style={styles.buttontext}>BreakFast</Text>
-                                {/* <Text style={styles.buttontext}>24 Recipes</Text> */}
                             </TouchableOpacity>
                         </SafeAreaView>
                     </View>
-                    <BottomNavigator />
                 </ScrollView>
             </View>
         )
@@ -91,5 +111,46 @@ const styles = StyleSheet.create({
     buttontext: {
         marginLeft: 5,
         fontSize: 20,
-    }
+    },
+    headerButtonImage: {
+        // justifyContent: 'flex-end',
+        // textAlign: 'right',
+        width: 20,
+        height: 20,
+        margin: 20,
+        marginLeft: 380
+    },
+    nestedButtonView: {
+        flexDirection: 'row',
+    },
 });
+
+const SwitchNavigator = createStackNavigator(
+    {
+        Home: HomeScreen,
+        Categories: CategoriesScreen,
+        Recipe: RecipeScreen,
+        RecipesList: RecipesListScreen,
+        Ingredient: IngredientScreen,
+        Search: SearchScreen,
+        IngredientsDetails: IngredientsDetailsScreen,
+        MyProfile: MyProfileScreen,
+    },
+    {
+        initialRouteName: 'Home'
+    }
+)
+
+const DrawerStack = createDrawerNavigator(
+    {
+        Main: SwitchNavigator
+    },
+    {
+        drawerPosition: 'left',
+        initialRouteName: 'Main',
+        drawerWidth: 250,
+        contentComponent: DrawerContainer
+    },
+);
+
+export default HomeScreen = createAppContainer(DrawerStack)
