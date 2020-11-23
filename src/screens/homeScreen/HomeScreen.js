@@ -5,9 +5,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import CategoriesScreen from '../../screens/Categories/CategoriesScreen';
 import RecipeScreen from '../../screens/Recipe/RecipeScreen'
 import RecipesListScreen from '../../screens/RecipesList/RecipesListScreen'
-import IngredientScreen from '../../screens/Ingredient/IngredientScreen'
 import SearchScreen from '../../screens/Search/SearchScreen'
-import IngredientsDetailsScreen from '../../screens/IngredientsDetails/IngredientsDetailsScreen'
 import MyProfileScreen from '../../screens/myProfileScreen/MyProfileScreen'
 import DrawerContainer from '../../screens/DrawerContainer/DrawerContainer';
 import { createAppContainer } from 'react-navigation';
@@ -134,7 +132,7 @@ class HomeScreen extends Component {
                                     size={30}
                                     style={styles.icon}
                                 />
-                                <Text style={styles.buttontext}>Starter &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <Text style={styles.innerText}>24 Recipes</Text>
+                                <Text style={styles.buttontext}>Starter &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <Text style={styles.innerText}>24 Recipes</Text>
                                 </Text>
                             </TouchableOpacity>
                         </Card>
@@ -239,9 +237,7 @@ const SwitchNavigator = createStackNavigator(
         Categories: CategoriesScreen,
         Recipe: RecipeScreen,
         RecipesList: RecipesListScreen,
-        Ingredient: IngredientScreen,
         Search: SearchScreen,
-        IngredientsDetails: IngredientsDetailsScreen,
         MyProfile: MyProfileScreen,
     },
     {
