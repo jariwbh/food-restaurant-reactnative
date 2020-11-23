@@ -5,57 +5,73 @@ import {
     View,
     Image,
     TouchableOpacity,
+
 } from 'react-native';
-import { Feather } from '@expo/vector-icons';
-import { Card } from 'react-native-elements'
+import { Feather, AntDesign, FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons';
 
 
-export default class Profile extends Component {
+export default class MyProfile extends Component {
 
     render() {
         return (
-            <View style={styles.container}>
+
+            <View >
                 <View style={styles.header}>
+
                     <Image style={styles.avatar} source={{ uri: 'https://bootdey.com/img/Content/avatar/avatar6.png' }} />
                     <View style={styles.bodyContent}>
                         <Text style={styles.name}>John Doe</Text>
+
                     </View>
                     <Feather name="edit" size={24} color="#F67600" style={styles.editstyle} />
                 </View>
-                <View style={styles.cardstyle}>
-                    <Card>
-                        <Text>My Order</Text>
+                <View style={styles.cardstyle} >
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('MyProfile')}>
+                        <FontAwesome name="first-order" size={24} color="#F67600" style={styles.logstyle} />
+                        <Text style={styles.inputText} >My Order</Text>
+                    </TouchableOpacity>
+                </View>
 
-                    </Card>
-                    <Card >
+                <View style={styles.cardstyle} >
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('MyProfile')}>
+                        <MaterialCommunityIcons name="percent" size={24} color="#F67600" style={styles.logstyle} />
+                        <Text style={styles.inputText} >Offers</Text>
+                    </TouchableOpacity>
+                </View>
 
-                        <Text>Offers</Text>
+                <View style={styles.cardstyle} >
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('MyProfile')}>
+                        <Feather name="phone-call" size={24} color="#F67600" style={styles.logstyle} />
+                        <Text style={styles.inputText} >Contact Us</Text>
+                    </TouchableOpacity>
+                </View>
 
-                    </Card>
-                    <Card >
 
-                        <Text>Contact Us</Text>
-
-                    </Card>
-                    <Card >
-
-                        <Text>About Us</Text>
-
-                    </Card>
-                    <Card >
-
-                        <Text>Log Out</Text>
-
-                    </Card>
-
+                <View style={styles.cardstyle} >
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('MyProfile')}>
+                        <AntDesign name="questioncircleo" size={24} color="#F67600" style={styles.logstyle} />
+                        <Text style={styles.inputText} >About Us</Text>
+                    </TouchableOpacity>
 
                 </View>
+
+
+                <View style={styles.cardstyle} >
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('MyProfile')}>
+                        <AntDesign name="logout" size={24} color="#F67600" style={styles.logstyle} />
+                        <Text style={styles.inputText} >Log Out</Text>
+                    </TouchableOpacity>
+                </View>
+
+
             </View>
+
         );
     }
 }
 
 const styles = StyleSheet.create({
+
     header: {
         backgroundColor: "#F67600",
         height: 300,
@@ -107,36 +123,32 @@ const styles = StyleSheet.create({
     },
 
     cardstyle: {
-        height: 100,
-        marginTop: 50,
+        height: 5,
+        marginTop: 10,
         padding: 20,
         margin: 20,
 
-    }
-    // info: {
-    //     fontSize: 16,
-    //     color: "#00BFFF",
-    //     marginTop: 10
-    // },
-    // description: {
-    //     fontSize: 16,
-    //     color: "#696969",
-    //     marginTop: 10,
-    //     textAlign: 'center'
-    // },
-    // buttonContainer: {
-    //     marginTop: 10,
-    //     height: 45,
-    //     flexDirection: 'row',
-    //     justifyContent: 'center',
-    //     alignItems: 'center',
-    //     marginBottom: 20,
-    //     width: 250,
-    //     borderRadius: 30,
-    //     backgroundColor: "#563522",
-    // }, btnText: {
-    //     color: "white",
-    //     fontWeight: 'bold',
-    // },
+
+    },
+    inputText: {
+        height: 50,
+        paddingLeft: 70,
+        color: "black",
+        margin: -20
+
+    },
+    logStyle: {
+
+        margin: 3,
+        height: 50,
+        width: 50,
+        alignItems: 'center',
+    },
+    separator: {
+        flex: 1,
+        height: StyleSheet.hairlineWidth,
+        backgroundColor: '#8E8E8E',
+    },
+
 });
 
