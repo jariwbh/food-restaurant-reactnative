@@ -1,16 +1,14 @@
 import React from 'react';
-import {
-  FlatList,
-  Text,
-  View,
-  Image,
-  TouchableHighlight,
-  StyleSheet
-} from 'react-native';
+import { FlatList, Text, View, Image, TouchableHighlight, StyleSheet } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-
-
 export default class CategoriesScreen extends React.Component {
+  static navigationOptions = () => ({
+    headerStyle: {
+      backgroundColor: '#F67600',
+    },
+    headerTintColor: '#fff',
+  });
+
   constructor(props) {
     super(props);
   }
@@ -49,7 +47,6 @@ export default class CategoriesScreen extends React.Component {
       </ScrollView>
     )
   }
-
 
   render() {
     return (

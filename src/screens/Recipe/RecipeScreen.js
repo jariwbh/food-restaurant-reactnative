@@ -1,27 +1,20 @@
 import React from 'react';
-import {
-  FlatList,
-  ScrollView,
-  Text,
-  View,
-  TouchableOpacity,
-  Image,
-  Dimensions,
-  TouchableHighlight,
-  Alert
-} from 'react-native';
+import { ScrollView, Text, View, Image, Dimensions, TouchableHighlight } from 'react-native';
 import styles from './styles';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import { getIngredientName, getCategoryName, getCategoryById } from '../../data/MockDataAPI';
 import BackButton from '../../components/BackButton/BackButton';
 import ViewIngredientsButton from '../../components/ViewIngredientsButton/ViewIngredientsButton';
-
 const { width: viewportWidth } = Dimensions.get('window');
 
 export default class RecipeScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return {
       headerTransparent: 'true',
+      headerStyle: {
+        backgroundColor: '#F67600',
+      },
+      headerTintColor: '#fff',
       headerLeft: (
         <BackButton
           onPress={() => {

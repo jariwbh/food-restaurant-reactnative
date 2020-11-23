@@ -5,9 +5,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import CategoriesScreen from '../../screens/Categories/CategoriesScreen';
 import RecipeScreen from '../../screens/Recipe/RecipeScreen'
 import RecipesListScreen from '../../screens/RecipesList/RecipesListScreen'
-import IngredientScreen from '../../screens/Ingredient/IngredientScreen'
 import SearchScreen from '../../screens/Search/SearchScreen'
-import IngredientsDetailsScreen from '../../screens/IngredientsDetails/IngredientsDetailsScreen'
 import MyProfileScreen from '../../screens/myProfileScreen/MyProfileScreen'
 import DrawerContainer from '../../screens/DrawerContainer/DrawerContainer';
 import { createAppContainer } from 'react-navigation';
@@ -17,7 +15,7 @@ import MenuImage from '../../components/MenuImage/MenuImage';
 
 class HomeScreen extends Component {
     static navigationOptions = ({ navigation }) => ({
-        title: 'Home',
+        title: 'Food Receipe',
         headerLeft: (
             <View style={styles.nestedButtonView}>
                 <MenuImage
@@ -34,12 +32,18 @@ class HomeScreen extends Component {
                 </TouchableOpacity>
             </View>
         ),
+
+        headerStyle: {
+            backgroundColor: '#F67600',
+        },
+        headerTintColor: '#fff',
     });
     render() {
         return (
             <View>
                 <ScrollView>
                     <View style={styles.design}>
+                        <Text style={styles.textview}>Recipes By Caregories</Text>
                         <SliderScreen />
                         <Text style={styles.textview}>Recipes By Caregories</Text>
                         <SafeAreaView style={{ flex: 1, marginTop: 10, marginLeft: 10 }}>
@@ -92,7 +96,7 @@ const styles = StyleSheet.create({
         borderStyle: 'solid'
     },
     design: {
-        marginTop: 24,
+        marginTop: 0,
     },
     image: {
         height: '30%',
@@ -113,8 +117,6 @@ const styles = StyleSheet.create({
         fontSize: 20,
     },
     headerButtonImage: {
-        // justifyContent: 'flex-end',
-        // textAlign: 'right',
         width: 20,
         height: 20,
         margin: 20,
@@ -131,9 +133,7 @@ const SwitchNavigator = createStackNavigator(
         Categories: CategoriesScreen,
         Recipe: RecipeScreen,
         RecipesList: RecipesListScreen,
-        Ingredient: IngredientScreen,
         Search: SearchScreen,
-        IngredientsDetails: IngredientsDetailsScreen,
         MyProfile: MyProfileScreen,
     },
     {
