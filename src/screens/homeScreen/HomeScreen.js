@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { View, StyleSheet, Text, Image, TouchableOpacity, ScrollView, SafeAreaView } from 'react-native'
+import { View, StyleSheet, Text, Image, TouchableOpacity, ScrollView, SafeAreaView, Button } from 'react-native'
 import SliderScreen from '../../components/Slider/SliderScreen'
-import { MaterialIcons, MaterialCommunityIcons, FontAwesome5, Octicons } from '@expo/vector-icons';
+import { FontAwesome5, Octicons } from '@expo/vector-icons';
 import CategoriesScreen from '../../screens/Categories/CategoriesScreen';
 import RecipeScreen from '../../screens/Recipe/RecipeScreen'
 import RecipesListScreen from '../../screens/RecipesList/RecipesListScreen'
@@ -12,15 +12,22 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createDrawerNavigator } from 'react-navigation-drawer'
 import MenuImage from '../../components/MenuImage/MenuImage';
-import { Card } from 'react-native-elements';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Fontisto from 'react-native-vector-icons/Fontisto';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import EditProfileScreen from '../../screens/EditProfileScreen/EditProfileScreen'
+
 
 class HomeScreen extends Component {
     static navigationOptions = ({ navigation }) => ({
-        title: 'Home',
+        title: 'Food Recipe',
         headerStyle: {
             backgroundColor: '#F67600',
+
         },
         headerTintColor: '#fff',
+        headerTitleStyle: { alignSelf: 'center' },
         headerLeft: (
             <View style={styles.nestedButtonView}>
                 <MenuImage
@@ -28,199 +35,184 @@ class HomeScreen extends Component {
                         navigation.openDrawer();
                     }}
                 />
-
-                <TouchableOpacity style={styles.headerButtonContainer} onPress={() => navigation.navigate('Search')}>
-                    <Octicons name="search" size={20} color="black" style={styles.searchStyle} />
-                </TouchableOpacity>
             </View>
         ),
+        headerRight: () => (
+            <View style={{ flexDirection: 'row', marginRight: 10 }}>
+                <Octicons name="search" size={20} color="#ffff" onPress={() => navigation.navigate('Search')} />
+            </View>
+        )
     });
+
+
     render() {
+
         return (
+
             <View style={styles.continer}>
 
                 <View style={styles.design}>
-                    <Text style={styles.textview}>Recently Added Recipes</Text>
+
                     <SliderScreen />
-                    <Text style={styles.textview}>Recipes By Caregories</Text>
-                    <View style={styles.cardstyle}>
-                        <Card style={styles.cardlayout}>
-                            <TouchableOpacity style={styles.button}>
-                                <FontAwesome5 name="bread-slice" size={30} style={styles.icon} />
-                                <Text style={styles.buttontext}>BreakFast &nbsp;&nbsp; <Text style={styles.innerText}>24 Recipes</Text>
-                                </Text>
-                            </TouchableOpacity>
-                        </Card>
-                        <Card >
 
-                            <TouchableOpacity style={styles.button}>
-                                <MaterialIcons
-                                    name={'free-breakfast'}
-                                    size={30}
-                                    style={styles.icon}
+                    <View style={styles.categoryContainer}>
+                        <TouchableOpacity
+                            style={styles.categoryBtn}
+                            onPress
+                        // onPress={(getItems) => this.props.navigation.navigate('RecipesList')}
+                        >
+                            <View style={styles.categoryIcon}>
+
+                                <Ionicons name="ios-restaurant" size={35} color='#F67600' />
+                            </View>
+                            <Text style={styles.categoryBtnTxt}>Dinner</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            style={styles.categoryBtn}
+                            onPress={() => this.props.navigation.navigate('RecipesList')}
+                        >
+                            <View style={styles.categoryIcon}>
+                                <MaterialCommunityIcons
+                                    name="food-fork-drink"
+                                    size={35}
+                                    color='#F67600'
                                 />
-                                <Text style={styles.buttontext}>Lunch &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <Text style={styles.innerText}>106 Recipes</Text>
-                                </Text>
-
-                            </TouchableOpacity>
-
-                        </Card>
-                        <Card >
-
-                            <TouchableOpacity style={styles.button}>
-                                <MaterialIcons name="room-service" size={30} style={styles.icon} />
-                                <Text style={styles.buttontext}>Dinner &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <Text style={styles.innerText}>24 Recipes</Text>
-                                </Text>
-
-                            </TouchableOpacity>
-
-                        </Card>
+                            </View>
+                            <Text style={styles.categoryBtnTxt}>BreakFast</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.categoryBtn} onPress={() => this.props.navigation.navigate('RecipesList')}>
+                            <View style={styles.categoryIcon}>
+                                <MaterialCommunityIcons name="food" size={35} color='#F67600' />
+                            </View>
+                            <Text style={styles.categoryBtnTxt}>Snacks Corner</Text>
+                        </TouchableOpacity>
                     </View>
-                    <View style={styles.cardstyle}>
-                        <Card style={styles.cardlayout}>
-                            <TouchableOpacity style={styles.button}>
-                                <MaterialIcons
-                                    name={'free-breakfast'}
-                                    size={30}
-                                    style={styles.icon}
-                                />
-                                <Text style={styles.buttontext}>Veg Menu &nbsp;&nbsp; <Text style={styles.innerText}>24 Recipes</Text>
-                                </Text>
-                            </TouchableOpacity>
-                        </Card>
-                        <Card >
+                    <View style={[styles.categoryContainer, { marginTop: 10 }]}>
+                        <TouchableOpacity style={styles.categoryBtn} onPress={() => this.props.navigation.navigate('RecipesList')}>
+                            <View style={styles.categoryIcon}>
+                                <MaterialIcons name="room-service" size={35} color='#F67600' />
 
-                            <TouchableOpacity style={styles.button}>
-                                <MaterialIcons
-                                    name={'free-breakfast'}
-                                    size={30}
-                                    style={styles.icon}
-                                />
-                                <Text style={styles.buttontext}>Non-veg  &nbsp;&nbsp;&nbsp;&nbsp;  <Text style={styles.innerText}>106 Recipes</Text>
-                                </Text>
+                            </View>
+                            <Text style={styles.categoryBtnTxt}>Lunch</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.categoryBtn} onPress={() => this.props.navigation.navigate('RecipesList')}>
+                            <View style={styles.categoryIcon}>
+                                <Ionicons name="md-restaurant" size={35} color='#F67600' />
 
-                            </TouchableOpacity>
-
-                        </Card>
-                        <Card >
-
-                            <TouchableOpacity style={styles.button}>
-                                <MaterialCommunityIcons name="ice-cream" size={30} style={styles.icon} />
-                                <Text style={styles.buttontext}>ice-cream   <Text style={styles.innerText}>24 Recipes</Text>
-                                </Text>
-
-                            </TouchableOpacity>
-
-                        </Card>
+                            </View>
+                            <Text style={styles.categoryBtnTxt}>Veg Corner</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.categoryBtn} onPress={() => this.props.navigation.navigate('RecipesList')}>
+                            <View style={styles.categoryIcon}>
+                                <MaterialCommunityIcons name="food-fork-drink" size={35} color='#F67600' />
+                            </View>
+                            <Text style={styles.categoryBtnTxt}>Non-Veg Corner</Text>
+                        </TouchableOpacity>
                     </View>
-                    <View style={styles.cardstyle}>
-                        <Card style={styles.cardlayout}>
-                            <TouchableOpacity style={styles.button}>
-                                <MaterialIcons
-                                    name={'free-breakfast'}
-                                    size={30}
-                                    style={styles.icon}
-                                />
-                                <Text style={styles.buttontext}>Starter &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <Text style={styles.innerText}>24 Recipes</Text>
-                                </Text>
-                            </TouchableOpacity>
-                        </Card>
-                        <Card >
 
-                            <TouchableOpacity style={styles.button}>
-                                <MaterialIcons
-                                    name={'free-breakfast'}
-                                    size={30}
-                                    style={styles.icon}
-                                />
-                                <Text style={styles.buttontext}>Drinks  &nbsp;&nbsp;&nbsp;&nbsp;  <Text style={styles.innerText}>106 Recipes</Text>
-                                </Text>
-
-                            </TouchableOpacity>
-
-                        </Card>
-                        <Card >
-
-                            <TouchableOpacity style={styles.button}>
-                                <MaterialIcons
-                                    name={'free-breakfast'}
-                                    size={30}
-                                    style={styles.icon}
-                                />
-                                <Text style={styles.buttontext}>Main-cours   <Text style={styles.innerText}>24 Recipes</Text>
-                                </Text>
-
-                            </TouchableOpacity>
-
-                        </Card>
-                    </View>
                 </View>
-
-
             </View>
+
+
+
+
         )
     }
 }
 
+
+
 const styles = StyleSheet.create({
-    continer: {
+    container: {
         flex: 1,
     },
-    button: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: 'row',
-        width: 120,
-        height: 50,
-    },
     design: {
-        marginTop: 24,
+        marginTop: 0,
     },
     image: {
         height: '30%',
         width: '50%',
 
     },
-    icon: {
-        // height: '40%',
-        // width: '40%',
-        marginLeft: 10
-    },
     textview: {
         marginTop: 10,
         marginLeft: 5,
         fontSize: 25,
-        fontWeight: 'bold'
-    },
-    buttontext: {
-        marginLeft: 10,
-        fontSize: 20,
-    },
-    headerButtonImage: {
-        // justifyContent: 'flex-end',
-        // textAlign: 'right',
-        margin: 20,
-        marginLeft: 380
-    },
-    nestedButtonView: {
-        flexDirection: 'row',
-    },
-    cardstyle: {
-        alignItems: 'center',
-        flexDirection: 'row',
-        justifyContent: 'space-around',
+        fontWeight: 'bold',
 
     },
-    innerText: {
+    categoryContainer: {
+        flexDirection: 'row',
+        width: '90%',
+        alignSelf: 'center',
+        marginTop: 25,
+        marginBottom: 10,
+    },
+    categoryBtn: {
+        flex: 1,
+        width: '30%',
+        marginHorizontal: 0,
+        alignSelf: 'center',
+    },
+    categoryIcon: {
+        borderWidth: 0,
+        alignItems: 'center',
+        justifyContent: 'center',
+        alignSelf: 'center',
+        width: 70,
+        height: 70,
+        backgroundColor: '#fdeae7' /* '#FF6347' */,
+        borderRadius: 50,
+    },
+    categoryBtnTxt: {
+        alignSelf: 'center',
+        marginTop: 5,
+        color: '#de4f35',
+    },
+    cardsWrapper: {
+        marginTop: 20,
+        width: '90%',
+        alignSelf: 'center',
+    },
+    card: {
+        height: 100,
+        marginVertical: 10,
+        flexDirection: 'row',
+        shadowColor: '#999',
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.8,
+        shadowRadius: 2,
+        elevation: 5,
+    },
+    cardImgWrapper: {
+        flex: 1,
+    },
+    cardImg: {
+        height: '100%',
+        width: '100%',
+        alignSelf: 'center',
+        borderRadius: 8,
+        borderBottomRightRadius: 0,
+        borderTopRightRadius: 0,
+    },
+    cardInfo: {
+        flex: 2,
+        padding: 10,
+        borderColor: '#ccc',
+        borderWidth: 1,
+        borderLeftWidth: 0,
+        borderBottomRightRadius: 8,
+        borderTopRightRadius: 8,
+        backgroundColor: '#fff',
+    },
+    cardTitle: {
+        fontWeight: 'bold',
+    },
+    cardDetails: {
         fontSize: 12,
-        alignItems: 'center',
+        color: '#444',
     },
-    searchStyle: {
-        margin: 20,
-        marginLeft: 380
-    }
 });
-
 const SwitchNavigator = createStackNavigator(
     {
         Home: HomeScreen,
@@ -229,6 +221,7 @@ const SwitchNavigator = createStackNavigator(
         RecipesList: RecipesListScreen,
         Search: SearchScreen,
         MyProfile: MyProfileScreen,
+        Edit: EditProfileScreen,
     },
     {
         initialRouteName: 'Home'

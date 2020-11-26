@@ -1,6 +1,9 @@
 import React from 'react';
 import { FlatList, Text, View, Image, TouchableHighlight, StyleSheet } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
+import * as Api from '../../services/Categoriesservice/CategorieService'
+
+
 export default class CategoriesScreen extends React.Component {
   static navigationOptions = () => ({
     headerStyle: {
@@ -11,47 +14,46 @@ export default class CategoriesScreen extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      itemCategories: [],
+
+    }
   }
 
-  rendercategory = () => {
-    return (
-      <ScrollView>
-        <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => this.props.navigation.navigate('RecipesList')}>
-          <View style={styles.categoriesItemContainer}>
-            <Image style={styles.categoriesPhoto} source={{ uri: 'https://www.telegraph.co.uk/content/dam/Travel/2019/January/france-food.jpg?imwidth=1400' }} />
-            <Text style={styles.categoriesName}>Cookies</Text>
-            <Text style={styles.categoriesInfo}>4 recipes</Text>
-          </View>
-        </TouchableHighlight>
-        <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => this.props.navigation.navigate('RecipesList')}>
-          <View style={styles.categoriesItemContainer}>
-            <Image style={styles.categoriesPhoto} source={{ uri: 'https://ak1.picdn.net/shutterstock/videos/19498861/thumb/1.jpg' }} />
-            <Text style={styles.categoriesName}>Mexican Food</Text>
-            <Text style={styles.categoriesInfo}>2 recipes</Text>
-          </View>
-        </TouchableHighlight>
-        <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => this.props.navigation.navigate('RecipesList')}>
-          <View style={styles.categoriesItemContainer}>
-            <Image style={styles.categoriesPhoto} source={{ uri: 'https://images.unsplash.com/photo-1533777324565-a040eb52facd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80' }} />
-            <Text style={styles.categoriesName}>Italian Food</Text>
-            <Text style={styles.categoriesInfo}>3 recipes</Text>
-          </View>
-        </TouchableHighlight>
-        <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => this.props.navigation.navigate('RecipesList')}>
-          <View style={styles.categoriesItemContainer}>
-            <Image style={styles.categoriesPhoto} source={{ uri: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/still-life-of-three-fresh-smoothies-in-front-of-royalty-free-image-561093647-1544042068.jpg?crop=0.715xw:0.534xh;0.0945xw,0.451xh&resize=768:*' }} />
-            <Text style={styles.categoriesName}>Smoothies</Text>
-            <Text style={styles.categoriesInfo}>1 recipes</Text>
-          </View>
-        </TouchableHighlight>
-      </ScrollView>
-    )
+  componentDidMount() {
+    Api.getCategory().then((response) => {
+      this.setState({ itemCategories: response.data })
+    })
+
   }
+
+  onPressCategory = id => {
+    this.props.navigation.navigate('RecipesList', { id });
+    console.log(id);
+  };
+
+
+  renderCategory = ({ item }) => (
+
+    <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => this.onPressCategory(item._id)}>
+      <View style={styles.categoriesItemContainer}>
+        <Image style={styles.categoriesPhoto} source={{ uri: item.property.item_logo }} />
+        <Text style={styles.categoriesName}>{item.property.title}</Text>
+        <Text style={styles.categoriesInfo}>4 Recipe</Text>
+      </View>
+    </TouchableHighlight>
+  );
 
   render() {
+    // const { itemCategories, items, } = this.state
+    // console.log(itemCategories);
     return (
       <View>
-        {this.rendercategory()}
+        <FlatList
+          data={this.state.itemCategories}
+          renderItem={this.renderCategory}
+          keyExtractor={item => `${item._id}`}
+        />
       </View>
     );
   }
